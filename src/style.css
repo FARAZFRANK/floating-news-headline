@@ -116,3 +116,27 @@
 .fnh-theme-row.is-active .fnh-theme-info { background: rgba(99, 102, 241, 0.05); }
 
 .fnh-mini-preview { transform: scale(0.6); transform-origin: left center; width: 166%; pointer-events: none; }
+
+/* =========================================
+   SCROLL BEHAVIOR: Sticky on Scroll
+   ========================================= */
+.fnh-sticky-top-wrapper {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s ease;
+    will-change: transform, opacity;
+}
+
+/* Hidden state — slides up above viewport */
+.fnh-sticky-top-wrapper.fnh-scroll-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Visible state — slides down into view */
+.fnh-sticky-top-wrapper.fnh-scroll-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+

@@ -3,7 +3,7 @@ Contributors: awordpresslife, razipathhan, hanif0991, muhammadshahid, fkfaisalkh
 Tags: news ticker, breaking news, marquee, news headline, floating bar
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -41,6 +41,7 @@ Unlike other ticker plugins that rely on heavy jQuery dependencies and outdated 
 * **Customizable Speed** — Control the scrolling speed from 5s (fast) to 100s (slow) with an intuitive range slider.
 * **Item Spacing Control** — Adjust the gap between ticker items from 0px to 200px for the perfect visual density.
 * **Page Targeting** — Choose to show the ticker on all pages or only on the homepage/front page.
+* **Scroll Behavior** — Choose between "Fixed" (always visible) or "Sticky on Scroll" (appears after scrolling down).
 * **Sticky Top Placement** — Automatically inject the ticker at the very top of your site using `wp_body_open`, or place it anywhere with a shortcode.
 * **Play / Pause Control** — Users can pause and resume the ticker with a built-in toggle button. Accessible with proper `aria-label` attributes.
 * **Seamless Infinite Loop** — Headlines scroll continuously with a duplicated group technique — no gaps, no stuttering.
@@ -179,6 +180,12 @@ Yes. The plugin uses the `floating-news-headline` text domain. All user-facing s
 6. Animation settings panel with speed slider and item spacing control.
 
 == Changelog ==
+
+= 1.4.0 — 2026-03-31 =
+* **New:** "Scroll Behavior" setting in Visibility tab.
+* **New:** "Sticky on Scroll" mode — Ticker appears only after the user scrolls down (smooth slide-in animation).
+* **New:** "Fixed" mode (Default) — Ticker is always visible at the top.
+* **Optimization:** Added rAF-throttled scroll listener for performance.
 
 = 1.3.0 — 2026-03-31 =
 * **Complete Architectural Rebuild** — Entire plugin rewritten from scratch with modern PHP (namespaced, PSR-4 autoloaded) and a React-based admin dashboard.

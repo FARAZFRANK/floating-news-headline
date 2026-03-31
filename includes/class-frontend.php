@@ -74,7 +74,16 @@ class Frontend {
 	public function render_sticky_ticker() {
 		$output = $this->render_shortcode( array() );
 		if ( $output ) {
-			printf( '<div class="fnh-sticky-top-wrapper" style="position:sticky;top:0;z-index:999999;width:100%%;">%s</div>', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$settings        = Settings::get_settings();
+			$scroll_behavior = $settings['scroll_behavior'] ?? 'fixed';
+			$extra_class     = ( 'sticky_on_scroll' === $scroll_behavior ) ? ' fnh-behavior-sticky-on-scroll' : ' fnh-behavior-fixed';
+
+			printf(
+				'<div class="fnh-sticky-top-wrapper%s" data-scroll-behavior="%s" style="position:sticky;top:0;z-index:999999;width:100%%;">%s</div>',
+				esc_attr( $extra_class ),
+				esc_attr( $scroll_behavior ),
+				$output // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			);
 		}
 	}
 }

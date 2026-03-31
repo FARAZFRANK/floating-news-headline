@@ -16,21 +16,22 @@ class Settings {
 	 */
 	public static function get_settings() {
 		$defaults = array(
-			'enabled'         => true,
-			'template'        => 'corporate',
-			'source'          => 'latest_posts',
-			'count'           => 5,
-			'speed'           => 35,
-			'placement'       => 'sticky_top',
-			'display_pages'   => 'all',
-			'paused'          => false,
-			'item_spacing'    => 80,
-			'labels'          => array(
+			'enabled'          => true,
+			'template'         => 'corporate',
+			'source'           => 'latest_posts',
+			'count'            => 5,
+			'speed'            => 35,
+			'placement'        => 'sticky_top',
+			'display_pages'    => 'all',
+			'paused'           => false,
+			'item_spacing'     => 80,
+			'scroll_behavior'  => 'fixed',
+			'labels'           => array(
 				'latest_posts' => 'Latest Posts',
 			),
-			'manual_posts'    => array(),
-			'custom_alert'      => '',
-			'custom_alert_link' => '',
+			'manual_posts'     => array(),
+			'custom_alert'       => '',
+			'custom_alert_link'  => '',
 		);
 
 		$settings = get_option( self::OPTION_KEY, null );
@@ -76,7 +77,8 @@ class Settings {
 		$output['placement']     = sanitize_text_field( $settings['placement'] ?? 'sticky_top' );
 		$output['display_pages'] = sanitize_text_field( $settings['display_pages'] ?? 'all' );
 		$output['paused']        = ! empty( $settings['paused'] );
-		$output['item_spacing']  = min( 200, max( 0, intval( $settings['item_spacing'] ?? 80 ) ) );
+		$output['item_spacing']     = min( 200, max( 0, intval( $settings['item_spacing'] ?? 80 ) ) );
+		$output['scroll_behavior']  = in_array( $settings['scroll_behavior'] ?? 'fixed', array( 'fixed', 'sticky_on_scroll' ), true ) ? $settings['scroll_behavior'] : 'fixed';
 		
 		// Labels (Assoc array)
 		$output['labels'] = array();

@@ -30,37 +30,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ─── Scroll Behavior: Sticky on Scroll ───────────────────────────────────
+    // ─── Scroll Behavior: Fixed vs Sticky on Scroll ──────────────────────────
     const wrapper = document.querySelector('.fnh-sticky-top-wrapper');
     if (!wrapper) return;
 
     const behavior = wrapper.dataset.scrollBehavior || 'fixed';
+    const SHOW_OFFSET = 80; // px from top before it changes state
+    let ticking = false;
 
-    if (behavior === 'sticky_on_scroll') {
-        // Hide initially
-        wrapper.classList.add('fnh-scroll-hidden');
+    // Initial state: Both are now visible initially as per request
+    wrapper.classList.add('fnh-scroll-visible');
 
-        let lastScrollY   = window.scrollY;
-        let ticking       = false;
-        const SHOW_OFFSET = 80; // px from top before it appears
-
-        const onScroll = () => {
-            lastScrollY = window.scrollY;
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
+    const onScroll = () => {
+        let lastScrollY = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (behavior === 'fixed') {
+                    // "Fixed" (New Request): Visible at top, hides after scroll
                     if (lastScrollY > SHOW_OFFSET) {
-                        wrapper.classList.remove('fnh-scroll-hidden');
-                        wrapper.classList.add('fnh-scroll-visible');
-                    } else {
                         wrapper.classList.remove('fnh-scroll-visible');
                         wrapper.classList.add('fnh-scroll-hidden');
+                    } else {
+                        wrapper.classList.remove('fnh-scroll-hidden');
+                        wrapper.classList.add('fnh-scroll-visible');
                     }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
+                } else if (behavior === 'sticky_on_scroll') {
+                    // "Sticky" (Update): Initially visible and remains visible (Sticky)
+                    // No need to hide/show, but we ensure it's visible.
+                    wrapper.classList.remove('fnh-scroll-hidden');
+                    wrapper.classList.add('fnh-scroll-visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-    }
+    window.addEventListener('scroll', onScroll, { passive: true });
 });
+

@@ -46,20 +46,20 @@
 /* =========================================
    DESIGN 1: Corporate Classic
    ========================================= */
-.fnh-ticker--corporate { background: transparent; border: 1px solid #e2e8f0; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.fnh-ticker--corporate { background: #fff; border: none; border-radius: 0; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
 .fnh-ticker--corporate .fnh-ticker__label { background: #7983f2; color: #fff; padding: 0 20px; font-size: 15px; font-weight: 800; box-shadow: 4px 0 10px rgba(0,0,0,0.05); flex-shrink: 0; position: relative; z-index: 15; }
 .fnh-ticker--corporate .fnh-ticker__item { color: #1e293b; transition: color 0.2s; }
 .fnh-ticker--corporate .fnh-ticker__item:hover { color: #7983f2; }
 .fnh-ticker--corporate .fnh-ticker__title { color: #1e293b; font-weight: 700; font-size: 14px; display: block; }
 .fnh-ticker--corporate .fnh-ticker__meta { color: #64748b; font-size: 11px; font-weight: 300; opacity: 0.8; }
 .fnh-ticker--corporate .fnh-ticker__divider { display: none; }
-.fnh-ticker--corporate .fnh-ticker__img { border-radius: 6px; width: 36px; height: 36px; }
+.fnh-ticker--corporate .fnh-ticker__img { border-radius: 0; width: 36px; height: 36px; }
 .fnh-ticker--corporate .fnh-play-pause-btn { background: #f8f9fc; color: #94a3b8; border-left: 1px solid #e2e8f0; width: 64px; }
 
 /* =========================================
    DESIGN 2: Dark Professional
    ========================================= */
-.fnh-ticker--dark { background: transparent; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; }
+.fnh-ticker--dark { background: transparent; border: none; border-radius: 0; overflow: hidden; }
 .fnh-ticker--dark .fnh-ticker__label { background: #1e293b; color: #94a3b8; padding: 0 24px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; border-right: 1px solid #334155; flex-shrink: 0; position: relative; z-index: 15; }
 .fnh-ticker--dark .fnh-ticker__label::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #10b981; margin-right: 12px; box-shadow: 0 0 10px #10b981; animation: fnh-pulse 2s infinite; }
 .fnh-ticker--dark .fnh-ticker__scroll-area { background: #0f172a; }
@@ -70,7 +70,7 @@
 .fnh-ticker--dark .fnh-ticker__blur--left { background: linear-gradient(to right, #0f172a, transparent) !important; }
 .fnh-ticker--dark .fnh-ticker__blur--right { background: linear-gradient(to left, #0f172a, transparent) !important; }
 .fnh-ticker--dark .fnh-ticker__divider { color: #334155; font-weight: 300; margin: 0; display: inline-flex; align-items: center; justify-content: center; width: 40px; }
-.fnh-ticker--dark .fnh-ticker__img { border-radius: 6px; width: 36px; height: 36px; border: 1px solid #1e293b; display: block; }
+.fnh-ticker--dark .fnh-ticker__img { border-radius: 0; width: 36px; height: 36px; border: 1px solid #1e293b; display: block; }
 .fnh-ticker--dark .fnh-ticker__img-wrapper { position: relative; flex-shrink: 0; }
 .fnh-ticker--dark .fnh-ticker__img-pulse { position: absolute; top: -3px; left: -3px; width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 5px #10b981; animation: fnh-pulse 2s infinite; border: 1.5px solid #0f172a; z-index: 2; }
 .fnh-ticker--dark .fnh-play-pause-btn { background: #1e293b; color: #64748b; border-left: 1px solid #334155; width: 64px; }
@@ -82,12 +82,12 @@
    DESIGN 3: The Floating Pill
    ========================================= */
 .fnh-ticker--pill { background: transparent !important; border: none; box-shadow: none; border-radius: 0; }
-.fnh-ticker--pill .fnh-ticker__inner { display: flex; align-items: center; background: #ecfdf5; border-radius: 999px; padding: 6px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #d1fae5; width: 100%; height: 100%; position: relative; }
-.fnh-ticker--pill .fnh-ticker__label { background: #10b981; color: #fff; border-radius: 999px; height: 100%; padding: 0 32px; font-size: 14px; font-weight: 800; border: none; text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; position: relative; z-index: 15; }
+.fnh-ticker--pill .fnh-ticker__inner { display: flex; align-items: center; background: #ecfdf5; border-radius: 0; padding: 6px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #d1fae5; width: 100%; height: 100%; position: relative; }
+.fnh-ticker--pill .fnh-ticker__label { background: #10b981; color: #fff; border-radius: 9999px; height: 100%; padding: 0 32px; font-size: 14px; font-weight: 800; border: none; text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; position: relative; z-index: 15; }
 .fnh-ticker--pill .fnh-ticker__item { color: #064e3b; font-weight: 600; transition: color 0.2s; }
 .fnh-ticker--pill .fnh-ticker__item:hover { color: #10b981; }
 .fnh-ticker--pill .fnh-ticker__title { color: inherit; font-size: 14px; display: inline; font-weight: inherit; }
-.fnh-ticker--pill .fnh-ticker__img { border-radius: 50%; width: 40px; height: 40px; border: 2px solid #d1fae5; }
+.fnh-ticker--pill .fnh-ticker__img { border-radius: 9999px; width: 40px; height: 40px; border: 2px solid #d1fae5; }
 .fnh-ticker--pill .fnh-ticker__blur--left { background: linear-gradient(to right, #ecfdf5, transparent) !important; }
 .fnh-ticker--pill .fnh-ticker__blur--right { background: linear-gradient(to left, #ecfdf5, transparent) !important; }
 
@@ -97,13 +97,13 @@
 .fnh-ticker:not(.fnh-ticker--pill) .fnh-play-pause-btn { height: 100%; }
 .fnh-play-pause-btn:hover { background: rgba(0,0,0,0.05); }
 
-.fnh-ticker--pill .fnh-play-pause-btn { background: #fff; color: #10b981; border-radius: 50%; width: 44px !important; height: 44px !important; margin: 0 10px; border: 1px solid #e2e8f0; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.fnh-ticker--pill .fnh-play-pause-btn { background: #fff; color: #10b981; border-radius: 9999px; width: 44px !important; height: 44px !important; margin: 0 10px; border: 1px solid #e2e8f0; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 .fnh-ticker--pill .fnh-play-pause-btn svg { width: 22px; height: 22px; }
 .fnh-ticker--pill .fnh-play-pause-btn:hover { background: #f0fdf4; color: #059669; transform: scale(1.05); border-color: #10b981; }
 
 /* Visual Selector */
 .fnh-theme-selector { display: flex; flex-direction: column; gap: 15px; }
-.fnh-theme-row { display: flex; align-items: center; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; cursor: pointer; background: #fff; }
+.fnh-theme-row { display: flex; align-items: center; border: 1px solid #e2e8f0; border-radius: 0; overflow: hidden; cursor: pointer; background: #fff; }
 .fnh-theme-info { width: 33.33%; padding: 20px; border-right: 1px solid #f1f5f9; }
 .fnh-theme-visual { width: 66.66%; padding: 15px; background: #f8fafc; overflow: hidden; }
 .fnh-theme-row.is-active { border-color: var(--fnh-primary); box-shadow: 0 0 0 1px var(--fnh-primary); }
@@ -119,7 +119,7 @@
 /* Base Admin Wrapper */
 .fnh-admin-wrap { background: var(--fnh-bg); min-height: 100vh; font-family: 'Inter', system-ui, sans-serif; position: relative; }
 .fnh-compact-container { width: 80%; margin-left: 0; }
-.fnh-glass-card { background: #ffffff; border: 1px solid var(--fnh-border); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.fnh-glass-card { background: #ffffff; border: 1px solid var(--fnh-border); border-radius: 0; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
 
 /* --- LAYOUT & POSITIONING --- */
 .fnh-admin-wrap .relative { position: relative; }
@@ -392,10 +392,10 @@
 .fnh-admin-wrap .border-\[\#f1f5f9\] { border-color: #f1f5f9; }
 
 /* --- BORDER RADIUS --- */
-.fnh-admin-wrap .rounded { border-radius: 4px; }
-.fnh-admin-wrap .rounded-lg { border-radius: 8px; }
-.fnh-admin-wrap .rounded-xl { border-radius: 12px; }
-.fnh-admin-wrap .rounded-2xl { border-radius: 16px; }
+.fnh-admin-wrap .rounded { border-radius: 0; }
+.fnh-admin-wrap .rounded-lg { border-radius: 0; }
+.fnh-admin-wrap .rounded-xl { border-radius: 0; }
+.fnh-admin-wrap .rounded-2xl { border-radius: 0; }
 .fnh-admin-wrap .rounded-full { border-radius: 9999px; }
 
 /* --- BOX SHADOWS --- */
@@ -580,6 +580,10 @@
 .fnh-admin-wrap input[type="range"],
 .fnh-admin-wrap select {
     max-width: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none !important;
 }
 
 /* =========================================
@@ -705,3 +709,27 @@
     border-color: #6366f1;
     box-shadow: 0 0 0 1px #6366f1;
 }
+
+/* =========================================
+   SCROLL BEHAVIOR: Sticky on Scroll
+   ========================================= */
+.fnh-sticky-top-wrapper {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s ease;
+    will-change: transform, opacity;
+}
+
+/* Hidden state — slides up above viewport */
+.fnh-sticky-top-wrapper.fnh-scroll-hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Visible state — slides down into view */
+.fnh-sticky-top-wrapper.fnh-scroll-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+

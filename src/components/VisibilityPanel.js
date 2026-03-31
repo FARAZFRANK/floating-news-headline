@@ -59,7 +59,7 @@ const VisibilityPanel = ({ settings, updateSetting }) => {
                                     <span className="text-[10px] font-bold text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-full">Default</span>
                                 )}
                             </div>
-                            <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Always visible at the top of the page, regardless of scroll position.</p>
+                            <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Visible at the top of the page, but hides when the user scrolls down.</p>
                         </div>
                         {/* Radio Dot */}
                         <div className={`absolute top-4 right-4 w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${scrollBehavior === 'fixed' ? 'border-indigo-500' : 'border-slate-300'}`}>
@@ -87,7 +87,7 @@ const VisibilityPanel = ({ settings, updateSetting }) => {
                         </div>
                         <div className="flex-1 min-w-0">
                             <span className={`text-sm font-semibold ${scrollBehavior === 'sticky_on_scroll' ? 'text-indigo-700' : 'text-slate-800'}`}>Sticky on Scroll</span>
-                            <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Hidden initially. Slides in and sticks to the top after the user scrolls down.</p>
+                            <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">Always visible at the top, and stays sticky while you scroll down.</p>
                         </div>
                         {/* Radio Dot */}
                         <div className={`absolute top-4 right-4 w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${scrollBehavior === 'sticky_on_scroll' ? 'border-indigo-500' : 'border-slate-300'}`}>

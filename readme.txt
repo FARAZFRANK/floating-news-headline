@@ -3,7 +3,7 @@ Contributors: awordpresslife, razipathhan, hanif0991, muhammadshahid, fkfaisalkh
 Tags: news ticker, breaking news, marquee, news headline, floating bar
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.4.0
+Stable tag: 1.3.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -181,10 +181,14 @@ Yes. The plugin uses the `floating-news-headline` text domain. All user-facing s
 
 == Changelog ==
 
-= 1.4.0 — 2026-03-31 =
-* **New:** "Scroll Behavior" setting in Visibility tab.
-* **New:** "Sticky on Scroll" mode — Ticker appears only after the user scrolls down (smooth slide-in animation).
-* **New:** "Fixed" mode (Default) — Ticker is always visible at the top.
+= 1.3.1 — 2026-03-31 =
+* **New:** "Scroll Behavior" setting in Visibility tab — Choose how the headline bar behaves on page scroll.
+* **New:** "Fixed" mode — Visible at top, hides after scroll (Default).
+* **New:** "Sticky on Scroll" mode — Always visible at the top, stays sticky while you scroll down.
+* **Enhancement:** Flattened design for all ticker themes (Corporate, Dark) and Admin UI for a modern sharp look.
+* **Enhancement:** Emerald Floating Pill theme updated with a flat bar but kept rounded label for a unique look.
+* **Fix:** Resolved double caret icons in admin dropdowns (Display Target Pages).
+* **Fix:** Solid background for Corporate Classic template to prevent transparency when sticky.
 * **Optimization:** Added rAF-throttled scroll listener for performance.
 
 = 1.3.0 — 2026-03-31 =

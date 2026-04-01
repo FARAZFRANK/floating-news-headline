@@ -26,12 +26,6 @@ class Frontend {
 		$settings = Settings::get_settings();
 		
 		if ( ! empty( $settings['enabled'] ) ) {
-			// Enforce Page Targeting Rules
-			$display_pages = $settings['display_pages'] ?? 'all';
-			if ( 'home' === $display_pages && ! is_front_page() && ! is_home() ) {
-				return '';
-			}
-
 			// Fetch items through the adapter
 			$items = Adapter::get_items( $settings );
 			if ( empty( $items ) ) {
@@ -72,6 +66,14 @@ class Frontend {
 	 * Render the sticky bar at the very top.
 	 */
 	public function render_sticky_ticker() {
+		$settings = Settings::get_settings();
+		
+		// Enforce Page Targeting Rules ONLY for automatic site-wide injection
+		$display_pages = $settings['display_pages'] ?? 'all';
+		if ( 'home' === $display_pages && ! is_front_page() && ! is_home() ) {
+			return;
+		}
+
 		$output = $this->render_shortcode( array() );
 		if ( $output ) {
 			$settings        = Settings::get_settings();

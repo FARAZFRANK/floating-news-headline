@@ -6,12 +6,17 @@ import ContentPanel from './components/ContentPanel';
 import ThemesPanel from './components/ThemesPanel';
 import AnimationPanel from './components/AnimationPanel';
 import VisibilityPanel from './components/VisibilityPanel';
+import ShortcodePanel from './components/ShortcodePanel';
 import GetProPage from './components/GetProPage';
+import HelpPage from './components/HelpPage';
 
 const Dashboard = () => {
     // Basic Routing
     if (window.floatingNewsHeadlineData?.page === 'floating-news-headline-get-pro') {
         return <GetProPage />;
+    }
+    if (window.floatingNewsHeadlineData?.page === 'floating-news-headline-help') {
+        return <HelpPage />;
     }
 
     const [settings, setSettings] = useState(window.floatingNewsHeadlineData?.settings || {});
@@ -52,7 +57,7 @@ const Dashboard = () => {
                         <div>
                             <h1 className="text-xl font-semibold text-gray-900 tracking-tight">Floating News Headline</h1>
                             <p className="text-xs text-gray-500 mt-1 flex items-center gap-1.5">
-                                <span className="font-medium">v1.3.0</span> 
+                                <span className="font-medium">v1.3.2</span> 
                             </p>
                         </div>
                         <div className="flex items-center gap-4">
@@ -82,7 +87,7 @@ const Dashboard = () => {
                     {/* Navigation Tabs */}
                     <div className="px-6 border-b border-gray-200 bg-white">
                         <nav className="flex space-x-1 sm:space-x-6 overflow-x-auto" aria-label="Tabs">
-                            {['content', 'themes', 'animation', 'visibility'].map(tab => (
+                            {['content', 'themes', 'animation', 'visibility', 'shortcode'].map(tab => (
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
@@ -100,6 +105,7 @@ const Dashboard = () => {
                         {activeTab === 'themes' && <ThemesPanel settings={settings} updateSetting={updateSetting} />}
                         {activeTab === 'animation' && <AnimationPanel settings={settings} updateSetting={updateSetting} />}
                         {activeTab === 'visibility' && <VisibilityPanel settings={settings} updateSetting={updateSetting} />}
+                        {activeTab === 'shortcode' && <ShortcodePanel />}
                     </div>
 
                     {/* Notices */}

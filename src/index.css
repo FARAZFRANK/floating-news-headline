@@ -19,7 +19,7 @@
 .fnh-hidden { display: none !important; }
 
 /* Animation Physics */
-.fnh-ticker { display: flex; align-items: center; overflow: hidden; position: relative; user-select: none; height: 64px; }
+.fnh-ticker { display: flex; align-items: center; overflow: hidden; position: relative; user-select: none; height: 72px; }
 .fnh-ticker__scroll-area { flex: 1; overflow: hidden; position: relative; display: flex; height: 100%; align-items: center; }
 .fnh-ticker__marquee { display: flex; width: max-content; animation: fnh-marquee var(--fnh-speed, 35s) linear infinite; will-change: transform; }
 .fnh-ticker--pause-on-hover:hover .fnh-ticker__marquee,
@@ -577,13 +577,20 @@
 .fnh-admin-wrap input[type="text"],
 .fnh-admin-wrap input[type="url"],
 .fnh-admin-wrap input[type="number"],
-.fnh-admin-wrap input[type="range"],
 .fnh-admin-wrap select {
     max-width: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background-image: none !important;
+}
+/* Range inputs need a separate reset — do NOT override background-image,
+   because updateRangeFill() in JS sets an inline gradient for the fill track. */
+.fnh-admin-wrap input[type="range"] {
+    max-width: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* =========================================

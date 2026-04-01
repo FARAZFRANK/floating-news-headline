@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $floating_news_headline_classes = 'fnh-ticker fnh-ticker--pill' . ( ! empty( $settings['paused'] ) ? ' fnh-ticker--pause-on-hover' : '' );
 ?>
 
-<div class="<?php echo esc_attr( $floating_news_headline_classes ); ?>" style="--fnh-speed: <?php echo esc_attr( $settings['speed'] ?? 35 ); ?>s; --fnh-gap: <?php echo esc_attr( $settings['item_spacing'] ?? 80 ); ?>px;">
+<div class="<?php echo esc_attr( $floating_news_headline_classes ); ?>" data-fnh-base-speed="<?php echo esc_attr( $settings['speed'] ?? 35 ); ?>" style="--fnh-speed: <?php echo esc_attr( $settings['speed'] ?? 35 ); ?>s; --fnh-gap: <?php echo esc_attr( $settings['item_spacing'] ?? 80 ); ?>px;">
 	<div class="fnh-ticker__inner">
 		<!-- 1. Fixed Label -->
 		<div class="fnh-ticker__label">

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Floating News Headline
  * Description: Premium, modern, and highly customizable floating news ticker for WordPress.
- * Version:     1.3.1
+ * Version:     1.3.2
  * Author:      A WP Life
  * License:     GPL-2.0-or-later
  * Text Domain: floating-news-headline
@@ -12,7 +12,7 @@ namespace FloatingNewsHeadline;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'FLOATING_NEWS_HEADLINE_VERSION', '1.3.1' );
+define( 'FLOATING_NEWS_HEADLINE_VERSION', '1.3.2' );
 define( 'FLOATING_NEWS_HEADLINE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FLOATING_NEWS_HEADLINE_URL', plugin_dir_url( __FILE__ ) );
 

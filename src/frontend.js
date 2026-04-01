@@ -1,9 +1,39 @@
-/**
- * Floating News Headline - Frontend Controller
- * Handles Play/Pause toggling and Scroll Behavior (fixed vs sticky-on-scroll).
- */
 document.addEventListener('DOMContentLoaded', () => {
     const tickers = document.querySelectorAll('.fnh-ticker');
+
+    // ─── Dynamic Speed Synchronization ───────────────────────────────────────
+    /**
+     * Normalizes the scroll duration based on the actual content width.
+     * This ensures that regardless of whether there's 1 item or 10, 
+     * the pixels-per-second speed remains consistent.
+     */
+    const updateTickerSpeeds = () => {
+        tickers.forEach(ticker => {
+            const group = ticker.querySelector('.fnh-ticker__group');
+            const baseSpeedSetting = parseFloat(ticker.dataset.fnhBaseSpeed) || 35;
+            
+            if (group) {
+                const width = group.offsetWidth;
+                if (width > 0) {
+                    // Pixels Per Second = (Setting * 1.5)
+                    // This ensures consistent visual speed regardless of content width or screen size.
+                    const pxPerSecond = baseSpeedSetting * 1.5;
+                    const calculatedDuration = width / pxPerSecond;
+                    ticker.style.setProperty('--fnh-speed', `${calculatedDuration.toFixed(2)}s`);
+                }
+            }
+        });
+    };
+
+    // Initial run
+    updateTickerSpeeds();
+
+    // Re-calculate on window resize (especially for responsive layouts)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateTickerSpeeds, 250);
+    });
 
     // ─── Play / Pause Toggle ─────────────────────────────────────────────────
     tickers.forEach(ticker => {
@@ -56,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else if (behavior === 'sticky_on_scroll') {
                     // "Sticky" (Update): Initially visible and remains visible (Sticky)
-                    // No need to hide/show, but we ensure it's visible.
                     wrapper.classList.remove('fnh-scroll-hidden');
                     wrapper.classList.add('fnh-scroll-visible');
                 }

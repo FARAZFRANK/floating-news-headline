@@ -20,6 +20,7 @@ class Assets {
 	public function enqueue_admin_assets( $hook ) {
 		$allowed_pages = array(
 			'toplevel_page_floating-news-headline',
+			'news-headlines_page_floating-news-headline-help',
 			'news-headlines_page_floating-news-headline-get-pro'
 		);
 		
@@ -48,7 +49,13 @@ class Assets {
 		);
 
 		// Pass Nonce, REST Root, and Current Settings to React
-		$floating_news_headline_page = ( $hook === 'news-headlines_page_floating-news-headline-get-pro' ) ? 'floating-news-headline-get-pro' : 'floating-news-headline';
+		if ( $hook === 'news-headlines_page_floating-news-headline-get-pro' ) {
+			$floating_news_headline_page = 'floating-news-headline-get-pro';
+		} elseif ( $hook === 'news-headlines_page_floating-news-headline-help' ) {
+			$floating_news_headline_page = 'floating-news-headline-help';
+		} else {
+			$floating_news_headline_page = 'floating-news-headline';
+		}
 
 		wp_localize_script( 'floating-news-headline-admin', 'floatingNewsHeadlineData', array(
 			'root'     => esc_url_raw( rest_url( 'floating-news-headline/v1' ) ),

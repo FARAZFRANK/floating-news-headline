@@ -3,7 +3,7 @@ Contributors: awordpresslife, razipathhan, hanif0991, muhammadshahid, fkfaisalkh
 Tags: news ticker, breaking news, marquee, news headline, floating bar
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -180,6 +180,12 @@ Yes. The plugin uses the `floating-news-headline` text domain. All user-facing s
 6. Animation settings panel with speed slider and item spacing control.
 
 == Changelog ==
+ 
+ = 1.3.2 — 2026-04-01 =
+ * **New:** Dedicated "Shortcode" documentation tab in the admin dashboard for easier manual placement reference.
+ * **Fix:** Synchronized Dashboard Preview height and theme icons (Corporate Classic document icon) with the live site.
+ * **Fix:** Synchronized scroll speed logic between the admin preview and the frontend for a matching experience.
+ * **Enhancement:** Decoupled shortcode visibility from site-wide targeting rules — shortcodes now work on any page regardless of "Display On" settings.
 
 = 1.3.1 — 2026-03-31 =
 * **New:** "Scroll Behavior" setting in Visibility tab — Choose how the headline bar behaves on page scroll.

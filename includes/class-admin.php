@@ -38,6 +38,15 @@ class Admin {
 
 		add_submenu_page(
 			$parent_slug,
+			'Help & Documentation',
+			'Help',
+			'manage_options',
+			'floating-news-headline-help',
+			array( $this, 'render_admin_page' ) // Same React root, we handle route in JS
+		);
+
+		add_submenu_page(
+			$parent_slug,
 			'Get Pro Version',
 			'Get Pro',
 			'manage_options',

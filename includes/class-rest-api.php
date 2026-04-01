@@ -97,6 +97,18 @@ class REST_API {
 		$settings['source'] = $source;
 		$settings['count']  = $count;
 
+		// Override custom alert fields from request for live preview accuracy.
+		if ( 'custom_alert' === $source ) {
+			$custom_alert = $request->get_param( 'custom_alert' );
+			$custom_alert_link = $request->get_param( 'custom_alert_link' );
+			if ( null !== $custom_alert ) {
+				$settings['custom_alert'] = sanitize_text_field( $custom_alert );
+			}
+			if ( null !== $custom_alert_link ) {
+				$settings['custom_alert_link'] = esc_url_raw( $custom_alert_link );
+			}
+		}
+
 		Adapter::clear_cache();
 		$posts = Adapter::get_items( $settings );
 

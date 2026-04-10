@@ -91,7 +91,7 @@ class Settings {
 		// Manual Posts (ID array)
 		$output['manual_posts'] = array();
 		if ( isset( $settings['manual_posts'] ) && is_array( $settings['manual_posts'] ) ) {
-			$output['manual_posts'] = array_slice( array_map( 'intval', $settings['manual_posts'] ), 0, 5 ); // Free limit enforced
+			$output['manual_posts'] = array_map( 'intval', $settings['manual_posts'] ); 
 		}
 
 		$output['custom_alert']      = sanitize_text_field( $settings['custom_alert'] ?? '' );

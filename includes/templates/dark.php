@@ -24,7 +24,11 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--dark' . ( ! empty( $se
 			<!-- Group 1 -->
 			<div class="fnh-ticker__group">
 				<?php foreach ( $items as $floating_news_headline_item ) : ?>
-					<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php else : ?>
+						<div class="fnh-ticker__item">
+					<?php endif; ?>
 						<?php if ( ! empty( $floating_news_headline_item['image_url'] ) ) : ?>
 							<div class="fnh-ticker__img-wrapper">
 								<img src="<?php echo esc_url( $floating_news_headline_item['image_url'] ); ?>" class="fnh-ticker__img" alt="">
@@ -34,14 +38,22 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--dark' . ( ! empty( $se
 						<div class="fnh-ticker__text">
 							<span class="fnh-ticker__title"><?php echo esc_html( $floating_news_headline_item['title'] ); ?></span>
 						</div>
-					</a>
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						</a>
+					<?php else : ?>
+						</div>
+					<?php endif; ?>
 					<span class="fnh-ticker__divider">|</span>
 				<?php endforeach; ?>
 			</div>
 			<!-- Group 2 -->
 			<div class="fnh-ticker__group" aria-hidden="true">
 				<?php foreach ( $items as $floating_news_headline_item ) : ?>
-					<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php else : ?>
+						<div class="fnh-ticker__item">
+					<?php endif; ?>
 						<?php if ( ! empty( $floating_news_headline_item['image_url'] ) ) : ?>
 							<div class="fnh-ticker__img-wrapper">
 								<img src="<?php echo esc_url( $floating_news_headline_item['image_url'] ); ?>" class="fnh-ticker__img" alt="">
@@ -51,7 +63,11 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--dark' . ( ! empty( $se
 						<div class="fnh-ticker__text">
 							<span class="fnh-ticker__title"><?php echo esc_html( $floating_news_headline_item['title'] ); ?></span>
 						</div>
-					</a>
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						</a>
+					<?php else : ?>
+						</div>
+					<?php endif; ?>
 					<span class="fnh-ticker__divider">|</span>
 				<?php endforeach; ?>
 			</div>

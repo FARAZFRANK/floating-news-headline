@@ -62,6 +62,7 @@ class Assets {
 			'nonce'    => wp_create_nonce( 'wp_rest' ),
 			'settings' => Settings::get_settings(),
 			'page'     => $floating_news_headline_page,
+			'version'  => FLOATING_NEWS_HEADLINE_VERSION,
 		) );
 	}
 

@@ -1,6 +1,6 @@
 # Floating News Headline
 
-[![WordPress Plugin Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](https://wordpress.org/plugins/floating-news-headline/)
+[![WordPress Plugin Version](https://img.shields.io/badge/version-1.3.3-blue.svg)](https://wordpress.org/plugins/floating-news-headline/)
 [![WordPress Tested](https://img.shields.io/badge/WordPress-6.9%20tested-green.svg)](https://wordpress.org/)
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D5.6-purple.svg)](https://www.php.net/)
 [![License](https://img.shields.io/badge/license-GPL--2.0--or--later-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -207,17 +207,13 @@ add_filter( 'floating_news_headline_items', function( $items, $settings ) {
 
 See [CHANGELOG.md](CHANGELOG.md) for the full version history.
 
-### Latest: v1.3.0 (2026-03-31)
+### Latest: v1.3.3 (2026-04-10)
 
-- Complete architectural rebuild with React admin dashboard
-- 3 premium themes (Corporate Classic, Dark Night, Floating Pill)
-- GPU-accelerated CSS marquee animations
-- BEM CSS architecture for zero theme conflicts
-- WordPress Transient caching with versioned keys
-- REST API settings with full sanitization
-- Manual post picker, custom alerts, page targeting
-- Play/Pause toggle, seamless infinite loop
-- Under 40KB frontend footprint
+- **Fix:** Resolved URL truncation issue in Custom Alert when typing rapidly (added debounce to preview).
+- **Fix:** Ensure dashboard preview updates instantly when selecting posts in Manual Selection mode without needing to save first.
+- **Compliance Update:** Removed artificial 5-post limit on Manual Post Picker to follow WordPress.org Guideline 5.
+- **Feature Enhancement:** Manual Selection now supports unlimited posts in the free version.
+- **Maintenance:** Updated admin UI and documentation to match current capabilities.
 
 ---
 

@@ -3,12 +3,12 @@ Contributors: awordpresslife, razipathhan, hanif0991, muhammadshahid, fkfaisalkh
 Tags: news ticker, breaking news, marquee, news headline, floating bar
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Premium, modern, and highly customizable floating news ticker for WordPress — rebuilt with a React dashboard, GPU-accelerated CSS animations, and BEM architecture.
+Modern, high-performance floating news ticker for WordPress with a React dashboard and GPU-accelerated CSS animations.
 
 == Description ==
 
@@ -37,7 +37,7 @@ Unlike other ticker plugins that rely on heavy jQuery dependencies and outdated 
 
 * **Instant Live Preview** — See your ticker changes in real-time within the admin dashboard before saving. No page refresh required.
 * **Multi-Source Content** — Pull headlines from your latest blog posts, manually select specific posts, or write a custom alert message with a link.
-* **Manual Post Picker** — Search and select up to 5 specific posts (free version) to display in your ticker with a beautiful search UI.
+* **Manual Post Picker** — Search and select specific posts to display in your ticker with a beautiful search UI.
 * **Customizable Speed** — Control the scrolling speed from 5s (fast) to 100s (slow) with an intuitive range slider.
 * **Item Spacing Control** — Adjust the gap between ticker items from 0px to 200px for the perfect visual density.
 * **Page Targeting** — Choose to show the ticker on all pages or only on the homepage/front page.
@@ -67,42 +67,6 @@ Unlike other ticker plugins that rely on heavy jQuery dependencies and outdated 
 * **Classes:** `Activator`, `Adapter`, `Admin`, `Assets`, `Deactivator`, `Frontend`, `REST_API`, `Settings`
 * **Templates:** `corporate.php`, `dark.php`, `pill.php` (BEM-structured HTML)
 * **Build System:** `@wordpress/scripts` with custom Webpack config for dual entry points (`index.js` for admin, `frontend.js` for public)
-
-### 📦 File Structure
-
-    floating-news-headline/
-    ├── floating-news-headlines.php   # Main plugin file (bootstrap, autoloader, lifecycle hooks)
-    ├── readme.txt                    # WordPress.org readme
-    ├── package.json                  # NPM configuration
-    ├── webpack.config.js             # Custom Webpack config (dual entry: index + frontend)
-    ├── includes/
-    │   ├── class-activator.php       # Activation hook — initialize default settings
-    │   ├── class-adapter.php         # Data adapter — fetch & cache ticker content
-    │   ├── class-admin.php           # Admin menu & page rendering
-    │   ├── class-assets.php          # Centralized asset enqueuing (admin + frontend)
-    │   ├── class-deactivator.php     # Deactivation hook — cleanup
-    │   ├── class-frontend.php        # Shortcode rendering & sticky injection
-    │   ├── class-rest-api.php        # REST API routes (settings CRUD, post search)
-    │   ├── class-settings.php        # Settings CRUD with strict sanitization
-    │   └── templates/
-    │       ├── corporate.php         # Corporate Classic theme template
-    │       ├── dark.php              # Dark Night theme template
-    │       └── pill.php              # Floating Pill theme template
-    ├── src/
-    │   ├── index.js                  # React admin dashboard entry point
-    │   ├── index.css                 # Admin + frontend CSS (BEM architecture)
-    │   ├── frontend.js               # Frontend play/pause controller (vanilla JS)
-    │   ├── style.css                 # Additional frontend ticker styles
-    │   └── components/
-    │       ├── AnimationPanel.js      # Speed & spacing controls
-    │       ├── ContentPanel.js        # Source selection & manual post picker
-    │       ├── GetProPage.js          # Pro upgrade page
-    │       ├── Icons.js               # SVG icon components
-    │       ├── LivePreview.js         # Real-time ticker preview in admin
-    │       ├── ManualPostPicker.js    # Post search & selection UI
-    │       ├── ThemesPanel.js         # Theme selection cards
-    │       └── VisibilityPanel.js     # Page targeting & placement controls
-    └── build/                         # Compiled production assets (auto-generated)
 
 == Installation ==
 
@@ -141,7 +105,7 @@ Go to **News Headlines** in your WordPress admin. Use the toggle switch in the t
 Yes! Use `[fnh_ticker]` or `[floating_news_headline_ticker]` in any page, post, or text widget. When using shortcode placement, set the placement to "Shortcode" in the admin dashboard.
 
 = Does it support custom post types? =
-The free version supports standard **Posts** and **Pages**. The Pro version will support all registered custom post types.
+The free version supports standard **Posts**. The Pro version adds advanced sources like RSS feeds, WooCommerce products, and custom reviews.
 
 = Can I show the ticker only on the homepage? =
 Yes. In the **Visibility** tab, set "Display On" to **Homepage Only**. The ticker will only appear on the front page and blog index page.
@@ -181,13 +145,20 @@ Yes. The plugin uses the `floating-news-headline` text domain. All user-facing s
 
 == Changelog ==
  
+ = 1.3.3 — 2026-04-10 =
+ * **Fix:** Resolved URL truncation issue in Custom Alert when typing rapidly (added debounce to preview).
+ * **Fix:** Ensure dashboard preview updates instantly when selecting posts in Manual Selection mode without needing to save first.
+ * **Compliance Update:** Removed artificial 5-post limit on Manual Post Picker to follow WordPress.org Guideline 5.
+ * **Feature Enhancement:** Manual Selection now supports unlimited posts in the free version.
+ * **Maintenance:** Updated admin UI and documentation to match current capabilities.
+
  = 1.3.2 — 2026-04-01 =
  * **New:** Dedicated "Shortcode" documentation tab in the admin dashboard for easier manual placement reference.
  * **Fix:** Synchronized Dashboard Preview height and theme icons (Corporate Classic document icon) with the live site.
  * **Fix:** Synchronized scroll speed logic between the admin preview and the frontend for a matching experience.
  * **Enhancement:** Decoupled shortcode visibility from site-wide targeting rules — shortcodes now work on any page regardless of "Display On" settings.
 
-= 1.3.1 — 2026-03-31 =
+ = 1.3.1 — 2026-03-31 =
 * **New:** "Scroll Behavior" setting in Visibility tab — Choose how the headline bar behaves on page scroll.
 * **New:** "Fixed" mode — Visible at top, hides after scroll (Default).
 * **New:** "Sticky on Scroll" mode — Always visible at the top, stays sticky while you scroll down.
@@ -205,7 +176,7 @@ Yes. The plugin uses the `floating-news-headline` text domain. All user-facing s
 * **New:** BEM CSS architecture for zero theme conflicts
 * **New:** WordPress Transient caching with versioned cache keys for performance
 * **New:** REST API powered settings with full sanitization and nonce verification
-* **New:** Manual Post Picker with search UI (up to 5 posts in free version)
+* **New:** Manual Post Picker with search UI
 * **New:** Custom Alert source with link support
 * **New:** Page targeting (all pages or homepage only)
 * **New:** Configurable speed (5s–100s) and item spacing (0px–200px)

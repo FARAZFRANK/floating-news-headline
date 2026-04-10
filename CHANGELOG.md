@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.3.3] — 2026-04-10
+
+### Fixed
+- **Fix:** Resolved URL truncation issue in Custom Alert when typing rapidly (added debounce to preview).
+- **Fix:** Ensure dashboard preview updates instantly when selecting posts in Manual Selection mode without needing to save first.
+
+### Changed
+- **Compliance Update:** Removed artificial 5-post limit on Manual Post Picker to follow WordPress.org Guideline 5.
+- **Feature Enhancement:** Manual Selection now supports unlimited posts in the free version.
+- **Maintenance:** Updated admin UI and documentation to match current capabilities.
+
+---
+
+## [1.3.2] — 2026-04-01
+
+### Added
+- **New:** Dedicated "Shortcode" documentation tab in the admin dashboard for easier manual placement reference.
+
+### Fixed
+- **Fix:** Synchronized Dashboard Preview height and theme icons (Corporate Classic document icon) with the live site.
+- **Fix:** Synchronized scroll speed logic between the admin preview and the frontend for a matching experience.
+
+### Changed
+- **Enhancement:** Decoupled shortcode visibility from site-wide targeting rules — shortcodes now work on any page regardless of "Display On" settings.
+
+---
+
+## [1.3.1] — 2026-03-31
+
+### Added
+- **New:** "Scroll Behavior" setting in Visibility tab — Choose how the headline bar behaves on page scroll.
+- **New:** "Fixed" mode — Visible at top, hides after scroll (Default).
+- **New:** "Sticky on Scroll" mode — Always visible at the top, stays sticky while you scroll down.
+
+### Fixed
+- **Fix:** Resolved double caret icons in admin dropdowns (Display Target Pages).
+- **Fix:** Solid background for Corporate Classic template to prevent transparency when sticky.
+
+### Changed
+- **Enhancement:** Flattened design for all ticker themes (Corporate, Dark) and Admin UI for a modern sharp look.
+- **Enhancement:** Emerald Floating Pill theme updated with a flat bar but kept rounded label for a unique look.
+- **Optimization:** Added rAF-throttled scroll listener for performance.
+
+---
+
 ## [1.3.0] — 2026-03-31
 
 ### 🔄 Complete Architectural Rebuild

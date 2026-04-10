@@ -67,6 +67,27 @@ class Admin {
 		<div class="wrap fnh-admin-wrap">
 			<div id="fnh-admin-root"></div>
 		</div>
+		<script>
+			// Dynamic version adjustment for React header
+			(function() {
+				const targetNode = document.getElementById('fnh-admin-root');
+				if (!targetNode) return;
+				
+				const observer = new MutationObserver((mutations) => {
+					// Search for the version string in the DOM and replace it
+					const walker = document.createTreeWalker(targetNode, NodeFilter.SHOW_TEXT, null, false);
+					let node;
+					while (node = walker.nextNode()) {
+						if (node.nodeValue.includes('v1.3.3')) {
+							node.nodeValue = node.nodeValue.replace('v1.3.3', 'v' + (window.floatingNewsHeadlineData?.version || '1.3.3'));
+							// observer.disconnect(); // Don't disconnect in case of re-renders
+						}
+					}
+				});
+				
+				observer.observe(targetNode, { childList: true, subtree: true });
+			})();
+		</script>
 		<?php
 	}
 }

@@ -21,7 +21,11 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--corporate' . ( ! empty
 			<!-- Group 1 (Original) -->
 			<div class="fnh-ticker__group">
 				<?php foreach ( $items as $floating_news_headline_item ) : ?>
-					<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php else : ?>
+						<div class="fnh-ticker__item">
+					<?php endif; ?>
 						<?php if ( ! empty( $floating_news_headline_item['image_url'] ) ) : ?>
 							<img src="<?php echo esc_url( $floating_news_headline_item['image_url'] ); ?>" class="fnh-ticker__img" alt="">
 						<?php endif; ?>
@@ -31,13 +35,21 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--corporate' . ( ! empty
 								<span class="fnh-ticker__meta"><?php echo esc_html( $floating_news_headline_item['meta'] ); ?></span>
 							<?php endif; ?>
 						</div>
-					</a>
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						</a>
+					<?php else : ?>
+						</div>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>
 			<!-- Group 2 (Clone for Seamless Loop) -->
 			<div class="fnh-ticker__group" aria-hidden="true">
 				<?php foreach ( $items as $floating_news_headline_item ) : ?>
-					<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						<a href="<?php echo esc_url( $floating_news_headline_item['link_url'] ); ?>" class="fnh-ticker__item">
+					<?php else : ?>
+						<div class="fnh-ticker__item">
+					<?php endif; ?>
 						<?php if ( ! empty( $floating_news_headline_item['image_url'] ) ) : ?>
 							<img src="<?php echo esc_url( $floating_news_headline_item['image_url'] ); ?>" class="fnh-ticker__img" alt="">
 						<?php endif; ?>
@@ -47,7 +59,11 @@ $floating_news_headline_classes = 'fnh-ticker fnh-ticker--corporate' . ( ! empty
 								<span class="fnh-ticker__meta"><?php echo esc_html( $floating_news_headline_item['meta'] ); ?></span>
 							<?php endif; ?>
 						</div>
-					</a>
+					<?php if ( ! empty( $floating_news_headline_item['link_url'] ) ) : ?>
+						</a>
+					<?php else : ?>
+						</div>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>
 		</div>
